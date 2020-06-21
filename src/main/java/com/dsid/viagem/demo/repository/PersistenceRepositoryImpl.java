@@ -1,0 +1,60 @@
+package com.dsid.viagem.demo.repository;
+
+import com.dsid.viagem.demo.Models.Entities.*;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+
+import java.util.List;
+
+@Component
+public class PersistenceRepositoryImpl implements PersistenceRepository {
+
+    @Autowired
+    JpaInterface jpaInterface;
+
+    @Override
+    public boolean insertData(Cliente cliente) {
+        if(this.clienteExiste(cliente)) return false;
+        this.populaLists(cliente);
+        jpaInterface.save(cliente);
+        return true;
+    }
+
+    private boolean clienteExiste(Cliente cliente){
+        return jpaInterface.existsById(cliente.getEmail());
+    }
+
+    private void populaLists(Cliente cliente){
+        if(cliente.getEnderecosCliente()!=null){
+            for(Endereco e: cliente.getEnderecosCliente()){
+                e.setCliente(cliente);
+            }
+        }
+        if(cliente.getTelefonesCliente()!=null){
+            for(TelefoneCliente telefoneCliente: cliente.getTelefonesCliente()){
+                telefoneCliente.setCliente(cliente);
+            }
+        }
+        if(cliente.getCartoesCliente()!=null){
+            for(Cartao cartao: cliente.getCartoesCliente()){
+                cartao.setCliente(cliente);
+            }
+        }
+
+    }
+
+    @Override
+    public boolean deleteData(Cliente cliente) {
+        return false;
+    }
+
+    @Override
+    public Cliente getEntity(String email) {
+        return null;
+    }
+
+    @Override
+    public boolean updateEntity(Cliente cliente) {
+        return false;
+    }
+}
