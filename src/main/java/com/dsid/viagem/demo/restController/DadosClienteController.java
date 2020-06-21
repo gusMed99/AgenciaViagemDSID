@@ -1,9 +1,9 @@
 package com.dsid.viagem.demo.restController;
 
-import com.dsid.viagem.demo.Models.Entities.Cliente;
-import com.dsid.viagem.demo.Models.HttpRequest.CampoInvalidoException;
-import com.dsid.viagem.demo.Models.HttpRequest.ClienteRequest;
-import com.dsid.viagem.demo.repository.PersistenceRepository;
+import com.dsid.viagem.demo.Models.HttpModels.HttpResponse;
+import com.dsid.viagem.demo.exceptions.CampoInvalidoException;
+import com.dsid.viagem.demo.Models.HttpModels.ClienteHttp;
+import com.dsid.viagem.demo.service.ClienteService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -16,31 +16,33 @@ import org.springframework.web.bind.annotation.RestController;
 public class DadosClienteController {
 
     @Autowired
-    PersistenceRepository repository;
+    ClienteService clienteService;
+
 
 
 
     @PostMapping(path= "/cadastro", consumes = "application/json", produces = "application/json")
-    public String cadastraCliente(@RequestBody ClienteRequest clienteRequest) throws CampoInvalidoException {
-            Cliente cliente= new Cliente.Builder(clienteRequest.getEmail()).
-                    nome(clienteRequest.getNome()).
-                    nomeMae(clienteRequest.getNomeMae()).
-                    cpf(clienteRequest.getCpf()).
-                    senha(clienteRequest.getSenha()).
-                    dataNacimento(clienteRequest.getDataNascimento()).
-                    telefonesCliente(clienteRequest.getTelefonesCliente()).
-                    cartoesCliente(clienteRequest.getCartoesCliente()).
-                    enderecosCliente(clienteRequest.getEnderecosCliente()).
-                    build();
-            if (repository.insertData(cliente)) {
-               return new  String("Cliente cadastrado com sucesso");
-            } else {
-                return new String("Cadastro invalido. Cliente já cadastrado");
+    public ResponseEntity<String> cadastraCliente(@RequestBody ClienteHttp clienteHttp) throws CampoInvalidoException {
+            try{
+                if (this.clienteService.cadastraCliente(clienteHttp)) {
+                    return new ResponseEntity<String>("Cliente cadastrado com sucesso", HttpStatus.CREATED);
+                } else {
+                    return new ResponseEntity<String>("Cadastro invalido. Cliente já cadastrado", HttpStatus.UNPROCESSABLE_ENTITY);
+                }
             }
+            catch (CampoInvalidoException e){
+                return new ResponseEntity<String>(e.getMessage(),HttpStatus.BAD_REQUEST);
+            }
+
     }
 
-    @GetMapping("/teste")
-    public String test(){
-        return "";
+    @GetMapping(path="/login",consumes = "application/json", produces = "application/json")
+    public ResponseEntity<HttpResponse> getDadosCliente(@RequestBody ClienteHttp request){
+        ClienteHttp response= clienteService.loginCliente(request);
+        if(response==null){
+            return new ResponseEntity<HttpResponse>(new HttpResponse("Email ou senha invalidos",null),HttpStatus.OK);
+        }
+
+        return new ResponseEntity<HttpResponse>(new HttpResponse("Login efetuado com sucesso",response),HttpStatus.OK);
     }
 }

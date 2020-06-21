@@ -5,6 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
+import java.util.Optional;
 
 @Component
 public class PersistenceRepositoryImpl implements PersistenceRepository {
@@ -50,6 +51,8 @@ public class PersistenceRepositoryImpl implements PersistenceRepository {
 
     @Override
     public Cliente getEntity(String email) {
+        Optional<Cliente> response = jpaInterface.findById(email);
+        if(response.isPresent()) return response.get();
         return null;
     }
 
