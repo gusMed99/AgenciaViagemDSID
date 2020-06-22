@@ -5,7 +5,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.ComponentScan;
 
 @SpringBootApplication
-//@ComponentScan("com.dsid.viagem.demo.restController")
+//@ComponentScan("com.dsid.viagem.demo.DadosCliente.restController")
 
 public class DemoApplication {
 

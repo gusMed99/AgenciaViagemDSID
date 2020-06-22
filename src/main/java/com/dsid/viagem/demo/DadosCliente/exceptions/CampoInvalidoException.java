@@ -1,4 +1,4 @@
-package com.dsid.viagem.demo.exceptions;
+package com.dsid.viagem.demo.DadosCliente.exceptions;
 
 public class CampoInvalidoException extends Exception {
     public CampoInvalidoException(String nomeCampo, String valor, String mensagemExtra) {

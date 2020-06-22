@@ -1,10 +1,9 @@
-package com.dsid.viagem.demo.repository;
+package com.dsid.viagem.demo.DadosCliente.repository;
 
-import com.dsid.viagem.demo.Models.Entities.*;
+import com.dsid.viagem.demo.DadosCliente.Models.Entities.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import java.util.List;
 import java.util.Optional;
 
 @Component

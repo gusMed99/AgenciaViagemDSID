@@ -1,13 +1,9 @@
-package com.dsid.viagem.demo.Models.Entities;
+package com.dsid.viagem.demo.DadosCliente.Models.Entities;
 
 
-import com.dsid.viagem.demo.Models.IdClasses.EnderecoID;
-import com.dsid.viagem.demo.exceptions.CampoInvalidoException;
-import com.fasterxml.jackson.annotation.JsonBackReference;
-import com.fasterxml.jackson.annotation.JsonManagedReference;
-import lombok.Builder;
+import com.dsid.viagem.demo.DadosCliente.Models.IdClasses.EnderecoID;
+import com.dsid.viagem.demo.DadosCliente.exceptions.CampoInvalidoException;
 import lombok.Getter;
-import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;

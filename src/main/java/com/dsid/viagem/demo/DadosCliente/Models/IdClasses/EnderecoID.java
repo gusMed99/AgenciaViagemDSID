@@ -1,6 +1,6 @@
-package com.dsid.viagem.demo.Models.IdClasses;
+package com.dsid.viagem.demo.DadosCliente.Models.IdClasses;
 
-import com.dsid.viagem.demo.Models.Entities.Cliente;
+import com.dsid.viagem.demo.DadosCliente.Models.Entities.Cliente;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;

@@ -1,10 +1,8 @@
-package com.dsid.viagem.demo.service;
+package com.dsid.viagem.demo.DadosCliente.service;
 
-import com.dsid.viagem.demo.Models.Entities.Cliente;
-import com.dsid.viagem.demo.Models.HttpModels.ClienteHttp;
-import com.dsid.viagem.demo.exceptions.CampoInvalidoException;
-import com.dsid.viagem.demo.repository.PersistenceRepository;
-import org.springframework.beans.factory.annotation.Autowired;
+import com.dsid.viagem.demo.DadosCliente.Models.Entities.Cliente;
+import com.dsid.viagem.demo.DadosCliente.Models.HttpModels.ClienteHttp;
+import com.dsid.viagem.demo.DadosCliente.exceptions.CampoInvalidoException;
 import org.springframework.stereotype.Service;
 
 @Service

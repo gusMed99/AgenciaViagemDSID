@@ -1,6 +1,6 @@
-package com.dsid.viagem.demo.repository;
+package com.dsid.viagem.demo.DadosCliente.repository;
 
-import com.dsid.viagem.demo.Models.Entities.Cliente;
+import com.dsid.viagem.demo.DadosCliente.Models.Entities.Cliente;
 
 
 public interface PersistenceRepository {

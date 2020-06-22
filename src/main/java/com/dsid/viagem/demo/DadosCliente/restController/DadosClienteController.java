@@ -1,9 +1,9 @@
-package com.dsid.viagem.demo.restController;
+package com.dsid.viagem.demo.DadosCliente.restController;
 
-import com.dsid.viagem.demo.Models.HttpModels.HttpResponse;
-import com.dsid.viagem.demo.exceptions.CampoInvalidoException;
-import com.dsid.viagem.demo.Models.HttpModels.ClienteHttp;
-import com.dsid.viagem.demo.service.ClienteService;
+import com.dsid.viagem.demo.DadosCliente.Models.HttpModels.HttpResponse;
+import com.dsid.viagem.demo.DadosCliente.exceptions.CampoInvalidoException;
+import com.dsid.viagem.demo.DadosCliente.Models.HttpModels.ClienteHttp;
+import com.dsid.viagem.demo.DadosCliente.service.ClienteService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

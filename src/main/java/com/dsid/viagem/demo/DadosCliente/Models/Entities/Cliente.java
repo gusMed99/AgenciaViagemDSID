@@ -1,6 +1,6 @@
-package com.dsid.viagem.demo.Models.Entities;
+package com.dsid.viagem.demo.DadosCliente.Models.Entities;
 
-import com.dsid.viagem.demo.exceptions.CampoInvalidoException;
+import com.dsid.viagem.demo.DadosCliente.exceptions.CampoInvalidoException;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;

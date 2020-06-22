@@ -1,9 +1,9 @@
-package com.dsid.viagem.demo.Models.HttpModels;
+package com.dsid.viagem.demo.DadosCliente.Models.HttpModels;
 
-import com.dsid.viagem.demo.Models.Entities.Cartao;
-import com.dsid.viagem.demo.Models.Entities.Cliente;
-import com.dsid.viagem.demo.Models.Entities.Endereco;
-import com.dsid.viagem.demo.Models.Entities.TelefoneCliente;
+import com.dsid.viagem.demo.DadosCliente.Models.Entities.Cartao;
+import com.dsid.viagem.demo.DadosCliente.Models.Entities.Cliente;
+import com.dsid.viagem.demo.DadosCliente.Models.Entities.Endereco;
+import com.dsid.viagem.demo.DadosCliente.Models.Entities.TelefoneCliente;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;

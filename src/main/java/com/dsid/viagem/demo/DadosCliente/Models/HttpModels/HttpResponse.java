@@ -1,4 +1,4 @@
-package com.dsid.viagem.demo.Models.HttpModels;
+package com.dsid.viagem.demo.DadosCliente.Models.HttpModels;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
