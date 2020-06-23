@@ -34,6 +34,6 @@ public class Cartao {
 
     @Id
     @ManyToOne
-    @JoinColumn(name = "email")
+    @JoinColumn(name = "idCliente")
     Cliente cliente;
 }

@@ -1,9 +1,11 @@
 package com.dsid.viagem.demo.DadosCliente.Models.Entities;
 
 import com.dsid.viagem.demo.DadosCliente.exceptions.CampoInvalidoException;
+import lombok.Generated;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
 import java.util.Date;
@@ -19,14 +21,21 @@ import static javax.persistence.CascadeType.ALL;
 public class Cliente {
 
     @Id
+    @GeneratedValue(generator="system-uuid")
+    @GenericGenerator(name="system-uuid", strategy = "uuid")
+    private String idCliente;
+
+    @Column(unique = true, nullable = false)
     private String email;
+
     @Column(nullable = false)
     private String nome;
     @Column(nullable = false)
     private Date dataNascimento;
     @Column
     private String nomeMae;
-    @Column(nullable = false, precision = 11)
+
+    @Column(nullable = false, unique = true, length = 11)
     private String cpf;
 
     @Column

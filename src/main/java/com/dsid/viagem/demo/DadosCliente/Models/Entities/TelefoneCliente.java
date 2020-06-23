@@ -4,24 +4,31 @@ import com.dsid.viagem.demo.DadosCliente.Models.IdClasses.TelefoneClienteId;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
 
 @Getter @Setter @NoArgsConstructor
-@IdClass(TelefoneClienteId.class)
+//@IdClass(TelefoneClienteId.class)
 @Entity
-@Table(name="telefone")
+@Table(name="telefone",uniqueConstraints = @UniqueConstraint(columnNames = {"telefone", "idCliente","ddd"}))
 public class TelefoneCliente extends ChildTableEntity {
-    @Id
-    @Column
-    String telefone;
-    @Id
-    @Column(nullable = false, precision = 3)
-    String ddd;
 
     @Id
+    @GeneratedValue(generator="system-uuid")
+    @GenericGenerator(name="system-uuid", strategy = "uuid")
+    private String idTelefone;
+
+
+    @Column(nullable = false, length = 12)
+    String telefone;
+
+    @Column(nullable = false, length = 3)
+    String ddd;
+
+
     @ManyToOne
-    @JoinColumn(name = "email")
+    @JoinColumn(name = "idCliente")
     Cliente cliente;
 
     public void setCliente(Cliente cliente) {

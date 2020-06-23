@@ -14,18 +14,19 @@ import java.io.Serializable;
 @Setter
 public class EnderecoID implements Serializable {
     private Cliente cliente;
-    private String cep;
+    private String idEndereco;
+
 
     @Override
     public boolean equals(Object o) {
         EnderecoID id= (EnderecoID)o;
-        if(cliente.equals(this.cliente) && id.cep==this.cep) return true;
+        if(cliente.equals(this.cliente) && id.idEndereco==this.idEndereco) return true;
         return false;
     }
 
     @Override
     public int hashCode() {
-        return Integer.parseInt(this.cep.hashCode()+""+this.cliente.getEmail().hashCode());
+        return Integer.parseInt(this.idEndereco.hashCode()+""+this.cliente.getEmail().hashCode());
     }
 
 

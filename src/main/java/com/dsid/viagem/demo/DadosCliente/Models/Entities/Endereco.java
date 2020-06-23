@@ -5,6 +5,7 @@ import com.dsid.viagem.demo.DadosCliente.Models.IdClasses.EnderecoID;
 import com.dsid.viagem.demo.DadosCliente.exceptions.CampoInvalidoException;
 import lombok.Getter;
 import lombok.Setter;
+import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
 
@@ -12,23 +13,29 @@ import javax.persistence.*;
 
 @Getter
 @Entity
-@Table(name="endereco")
-@IdClass(EnderecoID.class)
+@Table(name="endereco", uniqueConstraints = @UniqueConstraint(columnNames = {"cep", "idCliente","numero","complemento"}))
+//@Table(name = "endereco")
+//@IdClass(EnderecoID.class)
 @Setter
 public class Endereco extends ChildTableEntity {
 
 
+    @Id @GeneratedValue(generator="system-uuid")
+    @GenericGenerator(name="system-uuid", strategy = "uuid")
+    private String idEndereco;
 
-    @Id
-    @Column
+    @Column(length = 8)
     private String cep;
 
     @Column(nullable = false)
     private Integer numero;
 
-    @Id
+    @Column(nullable = true)
+    private String complemento;
+
+
     @ManyToOne
-    @JoinColumn(name = "email")
+    @JoinColumn(name = "idCliente")
     private Cliente cliente;
 
     public void setCliente(Cliente cliente) {
