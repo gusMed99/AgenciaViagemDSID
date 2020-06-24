@@ -62,11 +62,13 @@ public class ClienteHttp {
         if(this.enderecosCliente!=null){
             for(Endereco c: enderecosCliente){
                 c.setCliente(null);
+                c.setIdEndereco(null);
             }
         }
         if(this.telefonesCliente!=null){
             for(TelefoneCliente c: telefonesCliente){
                 c.setCliente(null);
+                c.setIdTelefone(null);
             }
         }
     }
