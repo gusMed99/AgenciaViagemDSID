@@ -4,6 +4,11 @@ import com.dsid.viagem.demo.DadosCliente.Models.HttpModels.HttpResponse;
 import com.dsid.viagem.demo.DadosCliente.exceptions.CampoInvalidoException;
 import com.dsid.viagem.demo.DadosCliente.Models.HttpModels.ClienteHttp;
 import com.dsid.viagem.demo.DadosCliente.service.ClienteService;
+import com.dsid.viagem.demo.DadosHotels.DadosHotelService;
+import com.dsid.viagem.demo.restAPICall.RestAPICallService;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.mashape.unirest.http.exceptions.UnirestException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -12,11 +17,18 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.HashMap;
+import java.util.Map;
+
 @RestController
 public class DadosClienteController {
 
     @Autowired
     ClienteService clienteService;
+
+    @Autowired
+    DadosHotelService dadosHotelService;
+
 
 
 
@@ -44,5 +56,18 @@ public class DadosClienteController {
         }
 
         return new ResponseEntity<HttpResponse>(new HttpResponse("Login efetuado com sucesso",response),HttpStatus.OK);
+    }
+
+    @GetMapping(path="/teste",consumes = "application/json", produces = "application/json")
+    public String testeCaller() throws JsonProcessingException, UnirestException {
+        ObjectMapper mapper = new ObjectMapper();
+        Map<String,String> parameters= new HashMap<String, String>();
+        parameters.put("adults","1");
+        parameters.put("nights","2");
+        parameters.put("child_rm_ages","7%252C10");
+        parameters.put("location_id","303611");
+        parameters.put("checkin","2020-07-15");
+
+        return  mapper.writeValueAsString(dadosHotelService.getExternalHotelData(parameters));
     }
 }
