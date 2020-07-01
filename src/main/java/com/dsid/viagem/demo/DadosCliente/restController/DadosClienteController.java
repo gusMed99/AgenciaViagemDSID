@@ -5,6 +5,7 @@ import com.dsid.viagem.demo.DadosCliente.exceptions.CampoInvalidoException;
 import com.dsid.viagem.demo.DadosCliente.Models.HttpModels.ClienteHttp;
 import com.dsid.viagem.demo.DadosCliente.service.ClienteService;
 import com.dsid.viagem.demo.DadosHotels.DadosHotelService;
+import com.dsid.viagem.demo.DadosLocalizacoes.DadosLocalizacoesService;
 import com.dsid.viagem.demo.restAPICall.RestAPICallService;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -28,6 +29,9 @@ public class DadosClienteController {
 
     @Autowired
     DadosHotelService dadosHotelService;
+
+    @Autowired
+    DadosLocalizacoesService dadosLocalizacoesService;
 
 
 
@@ -66,8 +70,17 @@ public class DadosClienteController {
         parameters.put("nights","2");
         parameters.put("child_rm_ages","7%252C10");
         parameters.put("location_id","303611");
-        parameters.put("checkin","2020-07-15");
+        parameters.put("checkin","2020-07-30");
 
         return  mapper.writeValueAsString(dadosHotelService.getExternalHotelData(parameters));
+    }
+
+    @GetMapping(path="/teste2",consumes = "application/json", produces = "application/json")
+    public String testeCaller2() throws JsonProcessingException, UnirestException {
+        ObjectMapper mapper = new ObjectMapper();
+        Map<String,String> parameters= new HashMap<String, String>();
+        parameters.put("query","Guarulhos");
+        parameters.put("units","km");
+        return  mapper.writeValueAsString(dadosLocalizacoesService.getLocationsData(parameters));
     }
 }

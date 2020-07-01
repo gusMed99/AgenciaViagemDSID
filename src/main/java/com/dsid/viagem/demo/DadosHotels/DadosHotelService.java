@@ -2,6 +2,7 @@ package com.dsid.viagem.demo.DadosHotels;
 
 import com.dsid.viagem.demo.DadosHotels.Models.HotelModel;
 import com.dsid.viagem.demo.restAPICall.RapidAPICallService;
+import com.dsid.viagem.demo.restAPICall.TripAdvisorCallService;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.mashape.unirest.http.exceptions.UnirestException;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,7 +17,7 @@ import java.util.Map;
 public class DadosHotelService {
 
     @Autowired
-    private RapidAPICallService rapidAPICallService;
+    private TripAdvisorCallService tripAdvisorCallService;
 
     private final String endpointUrl = "https://tripadvisor1.p.rapidapi.com/hotels/get-details";
 
@@ -24,7 +25,7 @@ public class DadosHotelService {
 
     public Map<String,Object> getExternalHotelData(Map<String, String> parameters) {
        try{
-           Map<String,Object> response= (Map<String,Object>)rapidAPICallService.getMethod(new HashMap<String, String>(),endpointUrl,parameters,Map.class);
+           Map<String,Object> response= (Map<String,Object>)tripAdvisorCallService.getMethod(new HashMap<String, String>(),endpointUrl,parameters,Map.class);
            this.filtrarResponse(response);
            return response;
        }

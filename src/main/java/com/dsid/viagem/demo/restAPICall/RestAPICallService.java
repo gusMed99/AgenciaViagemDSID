@@ -32,7 +32,7 @@ public class RestAPICallService {
             parametersString+=parameter.getKey()+"="+parameter.getValue();
             parametersString+="&";
         }
-        parametersString=parametersString.substring(0,parametersString.length()-2);
+        parametersString=parametersString.substring(0,parametersString.length()-1);
         if(parametersString.equals("")) return endpointUrl;
         return endpointUrl+"?"+parametersString;
     }
