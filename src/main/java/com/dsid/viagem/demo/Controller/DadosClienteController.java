@@ -1,4 +1,4 @@
-package com.dsid.viagem.demo.DadosCliente.restController;
+package com.dsid.viagem.demo.Controller;
 
 import com.dsid.viagem.demo.DadosCliente.Models.HttpModels.HttpResponse;
 import com.dsid.viagem.demo.DadosCliente.exceptions.CampoInvalidoException;

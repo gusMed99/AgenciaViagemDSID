@@ -1,4 +1,4 @@
-package com.dsid.viagem.demo.PackageBuilder;
+package com.dsid.viagem.demo.Controller;
 
 import com.dsid.viagem.demo.PackageBuilder.service.PackageBuilderService;
 import com.fasterxml.jackson.core.JsonProcessingException;
