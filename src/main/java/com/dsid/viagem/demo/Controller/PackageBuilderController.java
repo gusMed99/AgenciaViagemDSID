@@ -21,17 +21,17 @@ public class PackageBuilderController {
     public String testeCaller2() throws JsonProcessingException, UnirestException {
         String query="Guarulhos";
         String destino= "Goiania";
-        Map<String,String> parameters=new HashMap<>();
-        parameters.put("checkin","2020-07-30");
-        parameters.put("adults","1");
-        parameters.put("nights","1");
-        parameters.put("sort","recommended");
-        parameters.put("rooms","1");
-        parameters.put("offset","0");
-        parameters.put("order","asc");
-        parameters.put("limit","30");
+        Map<String,String> parametSers=new HashMap<>();
+        parametSers.put("checkin","2020-07-30");
+        parametSers.put("adults","1");
+        parametSers.put("nights","1");
+        parametSers.put("sort","recommended");
+        parametSers.put("rooms","1");
+        parametSers.put("offset","0");
+        parametSers.put("order","asc");
+        parametSers.put("limit","30");
         ObjectMapper mapper=new ObjectMapper();
-        String json =mapper.writeValueAsString(packageBuilderService.getPackages(query,destino,"10",parameters));
+        String json =mapper.writeValueAsString(packageBuilderService.getPackages(query,destino,"10",parametSers));
         return json;
     }
 }

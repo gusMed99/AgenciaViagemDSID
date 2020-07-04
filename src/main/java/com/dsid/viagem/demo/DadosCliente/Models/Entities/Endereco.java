@@ -55,6 +55,42 @@ public class Endereco extends ChildTableEntity {
         this.numero=builder.numero;
     }
 
+    public String getIdEndereco() {
+        return idEndereco;
+    }
+
+    public void setIdEndereco(String idEndereco) {
+        this.idEndereco = idEndereco;
+    }
+
+    public String getCep() {
+        return cep;
+    }
+
+    public void setCep(String cep) {
+        this.cep = cep;
+    }
+
+    public Integer getNumero() {
+        return numero;
+    }
+
+    public void setNumero(Integer numero) {
+        this.numero = numero;
+    }
+
+    public String getComplemento() {
+        return complemento;
+    }
+
+    public void setComplemento(String complemento) {
+        this.complemento = complemento;
+    }
+
+    public Cliente getCliente() {
+        return cliente;
+    }
+
     public static class Builder{
 
         private String cep;

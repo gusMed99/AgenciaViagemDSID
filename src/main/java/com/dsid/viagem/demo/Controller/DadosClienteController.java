@@ -56,10 +56,10 @@ public class DadosClienteController {
     public ResponseEntity<HttpResponse> getDadosCliente(@RequestBody ClienteHttp request){
         ClienteHttp response= clienteService.loginCliente(request);
         if(response==null){
-            return new ResponseEntity<HttpResponse>(new HttpResponse("Email ou senha invalidos",null),HttpStatus.OK);
+            return new ResponseEntity<HttpResponse>(new HttpResponse("false",null,"Credenciais inválidas",""),HttpStatus.BAD_REQUEST);
         }
 
-        return new ResponseEntity<HttpResponse>(new HttpResponse("Login efetuado com sucesso",response),HttpStatus.OK);
+        return new ResponseEntity<HttpResponse>(new HttpResponse("true",response,"Login realizado com sucesso",response.getCpf()),HttpStatus.OK);
     }
 
     @GetMapping(path="/teste",consumes = "application/json", produces = "application/json")

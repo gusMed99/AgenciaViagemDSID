@@ -25,6 +25,86 @@ public class Cliente {
     @GenericGenerator(name="system-uuid", strategy = "uuid")
     private String idCliente;
 
+    public String getIdCliente() {
+        return idCliente;
+    }
+
+    public void setIdCliente(String idCliente) {
+        this.idCliente = idCliente;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getNome() {
+        return nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    public Date getDataNascimento() {
+        return dataNascimento;
+    }
+
+    public void setDataNascimento(Date dataNascimento) {
+        this.dataNascimento = dataNascimento;
+    }
+
+    public String getNomeMae() {
+        return nomeMae;
+    }
+
+    public void setNomeMae(String nomeMae) {
+        this.nomeMae = nomeMae;
+    }
+
+    public String getCpf() {
+        return cpf;
+    }
+
+    public void setCpf(String cpf) {
+        this.cpf = cpf;
+    }
+
+    public String getSenha() {
+        return senha;
+    }
+
+    public void setSenha(String senha) {
+        this.senha = senha;
+    }
+
+    public List<TelefoneCliente> getTelefonesCliente() {
+        return telefonesCliente;
+    }
+
+    public void setTelefonesCliente(List<TelefoneCliente> telefonesCliente) {
+        this.telefonesCliente = telefonesCliente;
+    }
+
+    public List<Cartao> getCartoesCliente() {
+        return cartoesCliente;
+    }
+
+    public void setCartoesCliente(List<Cartao> cartoesCliente) {
+        this.cartoesCliente = cartoesCliente;
+    }
+
+    public List<Endereco> getEnderecosCliente() {
+        return enderecosCliente;
+    }
+
+    public void setEnderecosCliente(List<Endereco> enderecosCliente) {
+        this.enderecosCliente = enderecosCliente;
+    }
+
     @Column(unique = true, nullable = false)
     private String email;
 

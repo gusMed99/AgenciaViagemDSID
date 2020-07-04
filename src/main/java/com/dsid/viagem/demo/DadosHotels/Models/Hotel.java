@@ -197,8 +197,379 @@ public class Hotel implements Serializable
     }
 
 
+    public String getLocationId() {
+        return locationId;
+    }
 
+    public void setLocationId(String locationId) {
+        this.locationId = locationId;
+    }
 
+    public String getName() {
+        return name;
+    }
 
+    public void setName(String name) {
+        this.name = name;
+    }
 
+    public String getLatitude() {
+        return latitude;
+    }
+
+    public void setLatitude(String latitude) {
+        this.latitude = latitude;
+    }
+
+    public String getLongitude() {
+        return longitude;
+    }
+
+    public void setLongitude(String longitude) {
+        this.longitude = longitude;
+    }
+
+    public String getNumReviews() {
+        return numReviews;
+    }
+
+    public void setNumReviews(String numReviews) {
+        this.numReviews = numReviews;
+    }
+
+    public String getTimezone() {
+        return timezone;
+    }
+
+    public void setTimezone(String timezone) {
+        this.timezone = timezone;
+    }
+
+    public String getLocationString() {
+        return locationString;
+    }
+
+    public void setLocationString(String locationString) {
+        this.locationString = locationString;
+    }
+
+    public String getPreferredMapEngine() {
+        return preferredMapEngine;
+    }
+
+    public void setPreferredMapEngine(String preferredMapEngine) {
+        this.preferredMapEngine = preferredMapEngine;
+    }
+
+    public String getRawRanking() {
+        return rawRanking;
+    }
+
+    public void setRawRanking(String rawRanking) {
+        this.rawRanking = rawRanking;
+    }
+
+    public String getRankingGeo() {
+        return rankingGeo;
+    }
+
+    public void setRankingGeo(String rankingGeo) {
+        this.rankingGeo = rankingGeo;
+    }
+
+    public String getRankingGeoId() {
+        return rankingGeoId;
+    }
+
+    public void setRankingGeoId(String rankingGeoId) {
+        this.rankingGeoId = rankingGeoId;
+    }
+
+    public String getRankingPosition() {
+        return rankingPosition;
+    }
+
+    public void setRankingPosition(String rankingPosition) {
+        this.rankingPosition = rankingPosition;
+    }
+
+    public String getRankingDenominator() {
+        return rankingDenominator;
+    }
+
+    public void setRankingDenominator(String rankingDenominator) {
+        this.rankingDenominator = rankingDenominator;
+    }
+
+    public String getRankingCategory() {
+        return rankingCategory;
+    }
+
+    public void setRankingCategory(String rankingCategory) {
+        this.rankingCategory = rankingCategory;
+    }
+
+    public String getRanking() {
+        return ranking;
+    }
+
+    public void setRanking(String ranking) {
+        this.ranking = ranking;
+    }
+
+    public String getSubcategoryType() {
+        return subcategoryType;
+    }
+
+    public void setSubcategoryType(String subcategoryType) {
+        this.subcategoryType = subcategoryType;
+    }
+
+    public String getSubcategoryTypeLabel() {
+        return subcategoryTypeLabel;
+    }
+
+    public void setSubcategoryTypeLabel(String subcategoryTypeLabel) {
+        this.subcategoryTypeLabel = subcategoryTypeLabel;
+    }
+
+    public String getDistance() {
+        return distance;
+    }
+
+    public void setDistance(String distance) {
+        this.distance = distance;
+    }
+
+    public Object getDistanceString() {
+        return distanceString;
+    }
+
+    public void setDistanceString(Object distanceString) {
+        this.distanceString = distanceString;
+    }
+
+    public String getBearing() {
+        return bearing;
+    }
+
+    public void setBearing(String bearing) {
+        this.bearing = bearing;
+    }
+
+    public String getRating() {
+        return rating;
+    }
+
+    public void setRating(String rating) {
+        this.rating = rating;
+    }
+
+    public Boolean getClosed() {
+        return isClosed;
+    }
+
+    public void setClosed(Boolean closed) {
+        isClosed = closed;
+    }
+
+    public Boolean getLongClosed() {
+        return isLongClosed;
+    }
+
+    public void setLongClosed(Boolean longClosed) {
+        isLongClosed = longClosed;
+    }
+
+    public String getPriceLevel() {
+        return priceLevel;
+    }
+
+    public void setPriceLevel(String priceLevel) {
+        this.priceLevel = priceLevel;
+    }
+
+    public String getPrice() {
+        return price;
+    }
+
+    public void setPrice(String price) {
+        this.price = price;
+    }
+
+    public HacOffers getHacOffers() {
+        return hacOffers;
+    }
+
+    public void setHacOffers(HacOffers hacOffers) {
+        this.hacOffers = hacOffers;
+    }
+
+    public String getHotelClass() {
+        return hotelClass;
+    }
+
+    public void setHotelClass(String hotelClass) {
+        this.hotelClass = hotelClass;
+    }
+
+    public String getHotelClassAttribution() {
+        return hotelClassAttribution;
+    }
+
+    public void setHotelClassAttribution(String hotelClassAttribution) {
+        this.hotelClassAttribution = hotelClassAttribution;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public String getWebUrl() {
+        return webUrl;
+    }
+
+    public void setWebUrl(String webUrl) {
+        this.webUrl = webUrl;
+    }
+
+    public String getWriteReview() {
+        return writeReview;
+    }
+
+    public void setWriteReview(String writeReview) {
+        this.writeReview = writeReview;
+    }
+
+    public String getParentDisplayName() {
+        return parentDisplayName;
+    }
+
+    public void setParentDisplayName(String parentDisplayName) {
+        this.parentDisplayName = parentDisplayName;
+    }
+
+    public String getGuideCount() {
+        return guideCount;
+    }
+
+    public void setGuideCount(String guideCount) {
+        this.guideCount = guideCount;
+    }
+
+    public Boolean getJfyEnabled() {
+        return isJfyEnabled;
+    }
+
+    public void setJfyEnabled(Boolean jfyEnabled) {
+        isJfyEnabled = jfyEnabled;
+    }
+
+    public List<Object> getNearestMetroStation() {
+        return nearestMetroStation;
+    }
+
+    public void setNearestMetroStation(List<Object> nearestMetroStation) {
+        this.nearestMetroStation = nearestMetroStation;
+    }
+
+    public String getPhone() {
+        return phone;
+    }
+
+    public void setPhone(String phone) {
+        this.phone = phone;
+    }
+
+    public String getWebsite() {
+        return website;
+    }
+
+    public void setWebsite(String website) {
+        this.website = website;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public AddressObj getAddressObj() {
+        return addressObj;
+    }
+
+    public void setAddressObj(AddressObj addressObj) {
+        this.addressObj = addressObj;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+    public String getLocalName() {
+        return localName;
+    }
+
+    public void setLocalName(String localName) {
+        this.localName = localName;
+    }
+
+    public String getLocalAddress() {
+        return localAddress;
+    }
+
+    public void setLocalAddress(String localAddress) {
+        this.localAddress = localAddress;
+    }
+
+    public String getLocalLangCode() {
+        return localLangCode;
+    }
+
+    public void setLocalLangCode(String localLangCode) {
+        this.localLangCode = localLangCode;
+    }
+
+    public Boolean getCandidateForContactInfoSuppression() {
+        return isCandidateForContactInfoSuppression;
+    }
+
+    public void setCandidateForContactInfoSuppression(Boolean candidateForContactInfoSuppression) {
+        isCandidateForContactInfoSuppression = candidateForContactInfoSuppression;
+    }
+
+    public String getPhotoCount() {
+        return photoCount;
+    }
+
+    public void setPhotoCount(String photoCount) {
+        this.photoCount = photoCount;
+    }
+
+    public Boolean getHasReviewDraft() {
+        return hasReviewDraft;
+    }
+
+    public void setHasReviewDraft(Boolean hasReviewDraft) {
+        this.hasReviewDraft = hasReviewDraft;
+    }
+
+    public Boolean getHasPanoramicPhotos() {
+        return hasPanoramicPhotos;
+    }
+
+    public void setHasPanoramicPhotos(Boolean hasPanoramicPhotos) {
+        this.hasPanoramicPhotos = hasPanoramicPhotos;
+    }
 }

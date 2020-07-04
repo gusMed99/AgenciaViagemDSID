@@ -5,9 +5,16 @@ import lombok.Getter;
 import lombok.Setter;
 
 @Getter @Setter
-@AllArgsConstructor
 public class HttpResponse {
     String success;
-    String message;
     ClienteHttp clienteHttp;
+    String message;
+    String authToken;
+
+    public HttpResponse(String success, ClienteHttp clienteHttp, String message, String authToken) {
+        this.success = success;
+        this.clienteHttp = clienteHttp;
+        this.message = message;
+        this.authToken = authToken;
+    }
 }

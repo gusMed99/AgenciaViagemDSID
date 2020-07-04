@@ -13,6 +13,71 @@ public class Airport {
     private String name;
     private String cityName;
     private double latitude;
+
+    public String getIcaoCode() {
+        return icaoCode;
+    }
+
+    public void setIcaoCode(String icaoCode) {
+        this.icaoCode = icaoCode;
+    }
+
+    public String getIataCode() {
+        return iataCode;
+    }
+
+    public void setIataCode(String iataCode) {
+        this.iataCode = iataCode;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getCityName() {
+        return cityName;
+    }
+
+    public void setCityName(String cityName) {
+        this.cityName = cityName;
+    }
+
+    public double getLatitude() {
+        return latitude;
+    }
+
+    public void setLatitude(double latitude) {
+        this.latitude = latitude;
+    }
+
+    public double getLongitude() {
+        return longitude;
+    }
+
+    public void setLongitude(double longitude) {
+        this.longitude = longitude;
+    }
+
+    public String getCountryCode() {
+        return countryCode;
+    }
+
+    public void setCountryCode(String countryCode) {
+        this.countryCode = countryCode;
+    }
+
+    public String getLocationId() {
+        return locationId;
+    }
+
+    public void setLocationId(String locationId) {
+        this.locationId = locationId;
+    }
+
     private double longitude;
     private String countryCode;
     private String locationId;

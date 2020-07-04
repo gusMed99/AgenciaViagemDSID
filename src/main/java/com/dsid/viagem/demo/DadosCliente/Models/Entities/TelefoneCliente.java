@@ -34,4 +34,32 @@ public class TelefoneCliente extends ChildTableEntity {
     public void setCliente(Cliente cliente) {
         this.cliente = cliente;
     }
+
+    public String getIdTelefone() {
+        return idTelefone;
+    }
+
+    public void setIdTelefone(String idTelefone) {
+        this.idTelefone = idTelefone;
+    }
+
+    public String getTelefone() {
+        return telefone;
+    }
+
+    public void setTelefone(String telefone) {
+        this.telefone = telefone;
+    }
+
+    public String getDdd() {
+        return ddd;
+    }
+
+    public void setDdd(String ddd) {
+        this.ddd = ddd;
+    }
+
+    public Cliente getCliente() {
+        return cliente;
+    }
 }
