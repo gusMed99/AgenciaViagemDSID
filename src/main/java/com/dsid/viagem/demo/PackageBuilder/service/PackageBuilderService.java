@@ -6,6 +6,8 @@ import com.dsid.viagem.demo.DadosHotels.Models.Hotel;
 import com.dsid.viagem.demo.DadosHotels.Models.Offer;
 import com.dsid.viagem.demo.DadosLocalizacoes.DadosLocalizacoesAeroportosSerivce;
 import com.dsid.viagem.demo.DadosLocalizacoes.DadosLocalizacoesService;
+import com.dsid.viagem.demo.DadosVoos.DadosVoosService;
+import com.dsid.viagem.demo.DadosVoos.model.Voo;
 import com.dsid.viagem.demo.PackageBuilder.models.Airport;
 import com.dsid.viagem.demo.PackageBuilder.models.Package;
 import com.fasterxml.jackson.core.JsonProcessingException;
@@ -27,6 +29,9 @@ public class PackageBuilderService {
     @Autowired
     DadosHotelService dadosHotelService;
 
+    @Autowired
+    DadosVoosService dadosVoosService;
+
 
     public List<Package> getPackages(String origin, String destiny , String radius,Map<String,String> headersHotel ) throws JsonProcessingException {
         List<Airport> airportsOrigin=this.getNearAirportFromLocation(origin,radius);
@@ -40,6 +45,8 @@ public class PackageBuilderService {
         List<Package> packageList=new ArrayList<>();
         for(Airport airport: aiportsDestiny){
             headersHotel.put("location_id",airport.getLocationId());
+            List<Voo> voosList=this.getFlightData(origin.getIataCode(),airport.getIataCode(),headersHotel.get("checkin"));
+            if(voosList.size()==0) break;
             List<Hotel> hotelList=dadosHotelService.getExternalHotelData(headersHotel);
             for(Hotel hotel:hotelList){
 
@@ -53,12 +60,20 @@ public class PackageBuilderService {
                     HacOffers hacOffers=new HacOffers();
                     hacOffers.setOffers(offers);
                     hotelPackage.setHacOffers(hacOffers);
-                    packageList.add(new Package(airport,origin,hotelPackage));
+                    packageList.add(new Package(airport,origin,hotelPackage,voosList.get(0)));
                     i++;
                 }
             }
         }
         return packageList;
+    }
+
+    private List<Voo> getFlightData(String origin, String destiny, String date){
+        Map<String,String> headers= new HashMap<>();
+        headers.put("o1",origin);
+        headers.put("d1",destiny);
+        headers.put("dd1",date);
+        return this.dadosVoosService.getExternalFlighData(headers);
     }
 
     public  List<Airport> getNearAirportFromLocation(String locationQuery, String radius){

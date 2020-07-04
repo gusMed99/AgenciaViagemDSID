@@ -29,7 +29,7 @@ public class DadosVoosService {
             String searchHash=this.getSearchHash(createSeesionResponse);
             Map<String,String> poolParameter=this.createFlihtPoolHeaders(seachId);
             Map<String,Object> flightPoolResponse=(Map<String,Object>)tripAdvisorCallService.getMethod(new HashMap<String, String>(),endpointUrlPool,poolParameter, Map.class);
-            List<Voo> list=this.createFlighList(searchHash,seachId,parameters.get("dd1"),flightPoolResponse);
+            List<Voo> list=this.createFlighList(searchHash,seachId,parameters.get("dd1"),parameters.get("o1"),parameters.get("d1"),flightPoolResponse);
             return list;
         }
         catch (Exception e){
@@ -45,7 +45,7 @@ public class DadosVoosService {
         return parameters;
     }
 
-    private List<Voo> createFlighList(String searchHash, String searchId,String date, Map<String,Object> map){
+    private List<Voo> createFlighList(String searchHash, String searchId,String date,String origin,String destiny, Map<String,Object> map){
         List<Map> itineraries= (List<Map>) map.get("itineraries");
         List<Voo> flightsList=new ArrayList<>();
         for(Map itinerary: itineraries){
@@ -55,7 +55,7 @@ public class DadosVoosService {
                 String id= (String)option.get("id");
                 Map<String,Object> priceObject=(Map<String, Object>) option.get("pr");
                 Double price= (Double) priceObject.get("p");
-                flightsList.add(new Voo(date,price,compania,searchHash,searchId,id));
+                flightsList.add(new Voo(date,price,origin,destiny,compania,searchHash,searchId,id));
             }
         }
         return flightsList;

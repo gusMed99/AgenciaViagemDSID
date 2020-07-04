@@ -13,12 +13,12 @@ import java.util.Map;
 public class Voo implements Serializable {
     String date;
     Double price;
+    String origin;
+    String destiny;
     String Compania;
     String searchHash;
     String searchId;
     String flightId;
 
-    public  Voo(Map<String,Object> map){
 
-    }
 }
