@@ -2,6 +2,7 @@ package com.dsid.viagem.demo.DadosHotels;
 
 import com.dsid.viagem.demo.DadosHotels.Models.Hotel;
 import com.dsid.viagem.demo.DadosHotels.Models.HotelResponse;
+import com.dsid.viagem.demo.DadosHotels.Models.Image;
 import com.dsid.viagem.demo.restAPICall.TripAdvisorCallService;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.DeserializationFeature;
@@ -52,9 +53,29 @@ public class DadosHotelService {
         for(Map o:data){
             String json= mapper.writeValueAsString(o);
             Hotel hotel= mapper.readValue(json,Hotel.class);
+            hotel.setImages(this.putPhotos(o));
             dataResult.add(hotel);
         }
         return dataResult;
+    }
+
+    private List<Image> putPhotos(Map<String,Object> hotelMap){
+        List<Image> imageList=new ArrayList<>();
+        Map<String,Object> photos= (Map<String, Object>) hotelMap.get("photo");
+        if(photos==null) return imageList;
+        Map<String,Object> imagesMap=(Map<String, Object>) photos.get("images");
+        if(imagesMap==null) return imageList;
+        Map<String,String> small= (Map<String, String>) imagesMap.get("small");
+        Map<String,String> thumbnail= (Map<String, String>) imagesMap.get("thumbnail");
+        Map<String,String> original= (Map<String, String>) imagesMap.get("original");
+        Map<String,String> large= (Map<String, String>) imagesMap.get("large");
+        Map<String,String> medium= (Map<String, String>) imagesMap.get("medium");
+        imageList.add(new Image(small));
+        imageList.add(new Image(thumbnail));
+        imageList.add(new Image(original));
+        imageList.add(new Image(large));
+        imageList.add(new Image(medium));
+        return imageList;
     }
 
     private Map<String,Object> filtrarResponse(Map<String,Object> response){

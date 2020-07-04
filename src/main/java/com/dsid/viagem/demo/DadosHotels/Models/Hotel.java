@@ -180,6 +180,8 @@ public class Hotel implements Serializable
     @JsonProperty("has_panoramic_photos")
     private Boolean hasPanoramicPhotos;
 
+    private List<Image> images;
+
     @JsonIgnore
     public Hotel getSimpleHotel() throws JsonProcessingException {
         Hotel hotel= new Hotel();
