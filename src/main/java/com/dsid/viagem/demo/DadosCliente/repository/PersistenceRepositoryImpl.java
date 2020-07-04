@@ -22,7 +22,7 @@ public class PersistenceRepositoryImpl implements PersistenceRepository {
     }
 
     private boolean clienteExiste(Cliente cliente){
-        return jpaInterface.existsById(cliente.getEmail());
+        return jpaInterface.clientsByEmail(cliente.getEmail()).size()>0;
     }
 
     private void populaLists(Cliente cliente){

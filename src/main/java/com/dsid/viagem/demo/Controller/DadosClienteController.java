@@ -43,7 +43,7 @@ public class DadosClienteController {
                 if (this.clienteService.cadastraCliente(clienteHttp)) {
                     return new ResponseEntity<String>("Cliente cadastrado com sucesso", HttpStatus.CREATED);
                 } else {
-                    return new ResponseEntity<String>("Cadastro invalido. Cliente já cadastrado", HttpStatus.UNPROCESSABLE_ENTITY);
+                    return new ResponseEntity<String>("Cadastro invalido. Cliente já cadastrado", HttpStatus.BAD_REQUEST);
                 }
             }
             catch (CampoInvalidoException e){
