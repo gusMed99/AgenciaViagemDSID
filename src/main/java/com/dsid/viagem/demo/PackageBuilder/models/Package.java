@@ -13,7 +13,7 @@ import lombok.Setter;
 public class Package {
 
     private Airport airportDestiny;
-    private Airport origin;
+    private Airport airportOrigin;
 
     private Hotel hotel;
     private Voo voo;
@@ -22,7 +22,7 @@ public class Package {
 
     public Package(Airport airportDestiny, Airport origin, Hotel hotel,Voo voo) {
         this.airportDestiny = airportDestiny;
-        this.origin = origin;
+        this.airportOrigin = origin;
         this.hotel = hotel;
         this.voo=voo;
         this.packagePrice=Double.parseDouble(hotel.getHacOffers().getOffers().get(0).getDisplayPriceInt());
