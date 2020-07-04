@@ -193,6 +193,7 @@ public class Hotel implements Serializable
         hotel.setTimezone(this.timezone);
         hotel.setPhone(this.phone);
         hotel.setWebUrl(this.webUrl);
+        hotel.setImages(this.images);
         hotel.setHacOffers(null);
         return hotel;
 
