@@ -15,15 +15,14 @@ public class Package {
 
     private Airport airportDestiny;
     private Airport origin;
-    private Offer ofertaHotel;
+
     private Hotel hotel;
     private Double packagePrice;
 
-    public Package(Airport airportDestiny, Airport origin, Offer ofertaHotel, Hotel hotel) {
+    public Package(Airport airportDestiny, Airport origin, Hotel hotel) {
         this.airportDestiny = airportDestiny;
         this.origin = origin;
-        this.ofertaHotel = ofertaHotel;
         this.hotel = hotel;
-        this.packagePrice=Double.parseDouble(ofertaHotel.getDisplayPriceInt());
+        this.packagePrice=Double.parseDouble(hotel.getHacOffers().getOffers().get(0).getDisplayPriceInt());
     }
 }

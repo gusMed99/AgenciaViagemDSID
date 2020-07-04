@@ -32,7 +32,7 @@ public class HacOffers implements Serializable
     private String availability;
     @JsonProperty("offers")
     private List<Offer> offers = null;
-    @JsonProperty("all_booking_offers")
+    /*@JsonProperty("all_booking_offers")
     private List<AllBookingOffer> allBookingOffers = null;
     @JsonProperty("confirmation_strikethrough_base_total_stay")
     private String confirmationStrikethroughBaseTotalStay;
@@ -40,7 +40,7 @@ public class HacOffers implements Serializable
     private String confirmationStrikethroughBaseTotalStayWhenLte;
     @JsonIgnore
     private Map<String, Object> additionalProperties = new HashMap<String, Object>();
-    private final static long serialVersionUID = 5285746147578599044L;
+    private final static long serialVersionUID = 5285746147578599044L;*/
 
     @JsonProperty("availability")
     public String getAvailability() {
@@ -62,6 +62,7 @@ public class HacOffers implements Serializable
         this.offers = offers;
     }
 
+    /*
     @JsonProperty("all_booking_offers")
     public List<AllBookingOffer> getAllBookingOffers() {
         return allBookingOffers;
@@ -100,7 +101,6 @@ public class HacOffers implements Serializable
     @JsonAnySetter
     public void setAdditionalProperty(String name, Object value) {
         this.additionalProperties.put(name, value);
-    }
-
+    }*/
 
 }

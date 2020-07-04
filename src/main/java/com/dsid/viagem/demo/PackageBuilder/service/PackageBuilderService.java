@@ -1,6 +1,7 @@
 package com.dsid.viagem.demo.PackageBuilder.service;
 
 import com.dsid.viagem.demo.DadosHotels.DadosHotelService;
+import com.dsid.viagem.demo.DadosHotels.Models.HacOffers;
 import com.dsid.viagem.demo.DadosHotels.Models.Hotel;
 import com.dsid.viagem.demo.DadosHotels.Models.Offer;
 import com.dsid.viagem.demo.DadosLocalizacoes.DadosLocalizacoesAeroportosSerivce;
@@ -41,12 +42,18 @@ public class PackageBuilderService {
             headersHotel.put("location_id",airport.getLocationId());
             List<Hotel> hotelList=dadosHotelService.getExternalHotelData(headersHotel);
             for(Hotel hotel:hotelList){
-                Hotel hotelPackage=hotel.getSimpleHotel();
+
                 List<Offer> offerList= hotel.getHacOffers().getOffers();
                 int i=0;
                 for(Offer offer:offerList){
                     if(i>5) break;
-                    packageList.add(new Package(airport,origin,offer,hotelPackage));
+                    Hotel hotelPackage=hotel.getSimpleHotel();
+                    List<Offer> offers= new ArrayList<>();
+                    offers.add(offer);
+                    HacOffers hacOffers=new HacOffers();
+                    hacOffers.setOffers(offers);
+                    hotelPackage.setHacOffers(hacOffers);
+                    packageList.add(new Package(airport,origin,hotelPackage));
                     i++;
                 }
             }
