@@ -15,7 +15,7 @@ import java.util.List;
 import java.util.Map;
 
 @RestController
-@CrossOrigin(origins = "http://domain2.com", maxAge = 3600)
+@CrossOrigin(origins = "*", maxAge = 3600)
 public class DadosVoosController {
 
     @Autowired

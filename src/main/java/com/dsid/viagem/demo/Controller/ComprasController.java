@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@CrossOrigin(origins = "http://domain2.com", maxAge = 3600)
+@CrossOrigin(origins = "*", maxAge = 3600)
 public class ComprasController {
 
     @Autowired

@@ -16,7 +16,7 @@ import java.text.SimpleDateFormat;
 import java.util.*;
 
 @RestController
-@CrossOrigin(origins = "http://domain2.com", maxAge = 3600)
+@CrossOrigin(origins = "*", maxAge = 3600)
 public class PackageBuilderController {
 
     @Autowired
