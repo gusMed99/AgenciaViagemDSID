@@ -39,10 +39,10 @@ public class HotelRoomEntity {
     @JsonProperty("location_string")
     private String locationString;
 
-    @JsonIgnore
+
     private Double preco;
 
-    @JsonIgnore
+
     @Column(length = 10000)
     private String linkOferta;
 
@@ -52,6 +52,7 @@ public class HotelRoomEntity {
         this.longitude=hotel.getLongitude();
         this.name=hotel.getName();
         this.locationString=hotel.getLocationString();
+        this.locationId=hotel.getLocationId();
         this.timezone=hotel.getTimezone();
         this.linkOferta=hotel.getHacOffers().getOffers().get(0).getLink();
         this.preco=Double.parseDouble(hotel.getHacOffers().getOffers().get(0).getDisplayPriceInt());

@@ -4,6 +4,8 @@ import com.dsid.viagem.demo.PackageBuilder.models.entities.PackageEntity;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
+
 
 @Repository
 public class PackagePersistenceImpl implements PackagePersistence {
@@ -18,7 +20,7 @@ public class PackagePersistenceImpl implements PackagePersistence {
     }
 
     @Override
-    public PackageEntity getPackages(String cpfCliente) {
-        return null;
+    public List<PackageEntity> getPackages(String idCliente) {
+        return this.jpaInterfacePackage.getPackagesByClient(idCliente);
     }
 }

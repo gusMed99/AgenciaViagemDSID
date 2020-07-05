@@ -1,9 +1,12 @@
 package com.dsid.viagem.demo.Controller;
 
 import com.dsid.viagem.demo.PackageBuilder.models.Package;
+import com.dsid.viagem.demo.PackageBuilder.models.entities.PackageEntity;
 import com.dsid.viagem.demo.PackageBuilder.service.SavePackageService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 public class ComprasController {
@@ -13,7 +16,12 @@ public class ComprasController {
 
 
     @PostMapping(path="/comprar",consumes = "application/json", produces = "application/json")
-    public String comprarPacote(@RequestBody Package pacote, @RequestParam(required = true) String cpf) throws Exception {
-        return this.savePackageService.savePackage(pacote,cpf);
+    public String comprarPacote(@RequestBody Package pacote, @RequestParam(required = true) String cpf,@RequestParam(required = true) String checkin) throws Exception {
+        return this.savePackageService.savePackage(pacote,cpf,checkin);
+    }
+
+    @GetMapping(path="/historicoCompras", produces = "application/json")
+    public List<PackageEntity> getHistoricoCompras(@RequestParam(required = true) String cpf) throws Exception {
+        return this.savePackageService.getHistorical(cpf);
     }
 }

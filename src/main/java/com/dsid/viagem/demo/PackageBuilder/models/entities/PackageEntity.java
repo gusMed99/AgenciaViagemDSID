@@ -7,13 +7,20 @@ import com.dsid.viagem.demo.DadosVoos.model.Voo;
 import com.dsid.viagem.demo.PackageBuilder.models.Airport;
 import com.dsid.viagem.demo.PackageBuilder.models.Package;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 @Table(name = "Package")
 @Entity
 @Getter
+@NoArgsConstructor
+@Setter
 public class PackageEntity {
 
     @Id
@@ -41,14 +48,23 @@ public class PackageEntity {
     @Column(nullable = false)
     private Double packagePrice;
 
-    public PackageEntity(Package pacote, Cliente cliente){
+    @Column(nullable = false)
+    private Date dataCompra;
+
+    @Column(nullable = false)
+    private Date dataCheckin;
+
+
+
+    public PackageEntity(Package pacote, Cliente cliente,String checkin) throws ParseException {
         this.airportDestiny=pacote.getAirportDestiny();
         this.airportOrigin=pacote.getAirportOrigin();
         this.cliente=cliente;
-
         this.packagePrice=pacote.getPackagePrice();
         this.hotel=new HotelRoomEntity(pacote.getHotel());
         this.voo=pacote.getVoo();
+        this.dataCompra=new Date();
+        this.dataCheckin=new SimpleDateFormat("yyyy-mm-dd").parse(checkin);
     }
 
 }
