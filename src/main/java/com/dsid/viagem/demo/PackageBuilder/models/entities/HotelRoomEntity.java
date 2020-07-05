@@ -48,6 +48,7 @@ public class HotelRoomEntity {
 
 
     public HotelRoomEntity(Hotel hotel){
+
         this.latitude=hotel.getLatitude();
         this.longitude=hotel.getLongitude();
         this.name=hotel.getName();

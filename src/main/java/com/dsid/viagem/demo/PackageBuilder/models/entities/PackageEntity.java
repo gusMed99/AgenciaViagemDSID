@@ -57,12 +57,19 @@ public class PackageEntity {
 
 
     public PackageEntity(Package pacote, Cliente cliente,String checkin) throws ParseException {
-        this.airportDestiny=pacote.getAirportDestiny();
-        this.airportOrigin=pacote.getAirportOrigin();
+        this.packagePrice=new Double(0);
+       if(pacote.getVoo()!=null) {
+           this.airportDestiny = pacote.getAirportDestiny();
+           this.airportOrigin = pacote.getAirportOrigin();
+           this.voo = pacote.getVoo();
+           this.packagePrice+=pacote.getVoo().getPrice();
+       }
         this.cliente=cliente;
-        this.packagePrice=pacote.getPackagePrice();
-        this.hotel=new HotelRoomEntity(pacote.getHotel());
-        this.voo=pacote.getVoo();
+
+        if(pacote.getHotel()!=null){
+            this.hotel=new HotelRoomEntity(pacote.getHotel());
+            this.packagePrice+=this.hotel.getPreco();
+        }
         this.dataCompra=new Date();
         this.dataCheckin=new SimpleDateFormat("yyyy-mm-dd").parse(checkin);
     }
