@@ -8,4 +8,5 @@ public interface PersistenceRepository {
     public boolean deleteData(Cliente cliente);
     public Cliente getEntity(String email);
     public boolean updateEntity(Cliente cliente);
+    public Cliente getEntityByCpf(String cpf);
 }

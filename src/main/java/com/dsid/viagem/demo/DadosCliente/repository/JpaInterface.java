@@ -13,6 +13,9 @@ public interface JpaInterface extends JpaRepository<Cliente,String> {
     @Query(value = "SELECT * FROM cliente WHERE email = :email", nativeQuery = true)
     List<Cliente> clientsByEmail(@Param("email") String email);
 
+    @Query(value = "SELECT * FROM cliente WHERE cpf = :cpf", nativeQuery = true)
+    List<Cliente> clientsByCpf(@Param("cpf") String cpf);
+
 
 
 

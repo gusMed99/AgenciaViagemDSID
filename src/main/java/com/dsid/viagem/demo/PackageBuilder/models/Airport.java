@@ -1,17 +1,33 @@
 package com.dsid.viagem.demo.PackageBuilder.models;
 
 import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
 import java.util.List;
 import java.util.Map;
 
 @Getter
-
+@Entity
+@Table(name = "airport")
+@Setter
+@NoArgsConstructor
 public class Airport {
+
+    @Column
     private String icaoCode;
+    @Id
+    @Column
     private String iataCode;
+    @Column
     private String name;
+    @Column
     private String cityName;
+    @Column
     private double latitude;
 
     public String getIcaoCode() {

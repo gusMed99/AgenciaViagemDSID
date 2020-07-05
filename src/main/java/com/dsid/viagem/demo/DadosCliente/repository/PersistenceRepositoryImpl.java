@@ -60,4 +60,11 @@ public class PersistenceRepositoryImpl implements PersistenceRepository {
     public boolean updateEntity(Cliente cliente) {
         return false;
     }
+
+    @Override
+    public Cliente getEntityByCpf(String cpf) {
+        List<Cliente> clienteList= jpaInterface.clientsByCpf(cpf);
+        if(clienteList.size()==0) return null;
+        return clienteList.get(0);
+    }
 }

@@ -6,18 +6,33 @@ import com.dsid.viagem.demo.DadosVoos.model.Voo;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.hibernate.annotations.GenericGenerator;
+
+import javax.persistence.*;
 
 
 @NoArgsConstructor
 @Setter
 @Getter
+
 public class Package {
 
+
     private Airport airportDestiny;
+
+
     private Airport airportOrigin;
+
+
     private Hotel hotel;
+
+
     private Voo voo;
+
+
     private Double packagePrice;
+
+
     private Image destinyImage;
 
 
@@ -30,4 +45,6 @@ public class Package {
         this.packagePrice=Double.parseDouble(hotel.getHacOffers().getOffers().get(0).getDisplayPriceInt());
         this.packagePrice+=voo.getPrice();
     }
+
+
 }
