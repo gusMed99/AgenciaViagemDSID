@@ -24,10 +24,10 @@ public class PackageEntity {
     @OneToOne(cascade = CascadeType.ALL)
     private Cliente cliente;
 
-    @OneToOne(cascade = CascadeType.ALL)
+    @OneToOne(cascade = CascadeType.MERGE)
    private Airport airportDestiny;
 
-    @OneToOne(cascade = CascadeType.ALL)
+    @OneToOne(cascade = CascadeType.MERGE)
    private Airport airportOrigin;
 
 
