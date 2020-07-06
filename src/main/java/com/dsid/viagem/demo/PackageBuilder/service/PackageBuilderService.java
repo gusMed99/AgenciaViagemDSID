@@ -99,7 +99,7 @@ public class PackageBuilderService {
             airports.add( Airport.createGuarulhos());
             return airports;
         }
-        Map<String,Object> aeroportosProximos= this.dadosLocalizacoesAeroportosSerivce.getNearAirportsData(latitude,longitude,radius,"5");
+        Map<String,Object> aeroportosProximos= this.dadosLocalizacoesAeroportosSerivce.getNearAirportsData(latitude,longitude,radius,"2");
         int size= ((List<Map>)(aeroportosProximos.get("items"))).size();
 
         for(int i=0;i<size && i<5;i++){
